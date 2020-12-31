@@ -3,15 +3,16 @@
 #define SIZE 50
 #define LINE 256
 
-shift_element(int* arr, int i){
+int shift_element(int* arr, int i){
     int j;
     for (j = i; j > 0 ; j--)
     {
         *(arr+j) = *(arr+j-1);
     }
+    return 0;
 }
 
-insertion_sort(int* arr , int len){
+int insertion_sort(int* arr , int len){
     int i, tmp, j;
     for (i = 1; i < len; i++) { 
         tmp = *(arr+i); 
@@ -23,6 +24,7 @@ insertion_sort(int* arr , int len){
         } 
         *(arr+j+1) = tmp; 
     }
+    return 0;
 }
 
 int main(){
@@ -50,47 +52,5 @@ int main(){
     }
     printf("\n");
 
-// part 2 - .
-    
-
-    char str[LINE];
-    FILE *fp;
-    fp = fopen("search_file.txt", "r");
-    // if (fgets(str, LINE, fp) != NULL) {
-    //     printf("number of labels: %d", getline(*str));
-    // }
-    // print_line(str);
-    
-
-
-    s[LINE];
-    int counter = 0;
-    FILE *fptr = fopen("search_file.txt", "r");
-
-
-    while (1) {
-        int c = fgetc(fptr);
-        ++counter;
-        if (c == '\n') break;
-    }
-
-    printf(counter);
     return 0;
-}
-
-print_line(char s[]){
-    s[LINE];
-    FILE *fptr;
-
-    if ((fptr = fopen("search_file.txt", "r")) == NULL) {
-        printf("Error! opening file failed");
-        exit(1);
-    }
-
-    // reads text until newline is encountered
-    fscanf(fptr, "%[^\n]", s);
-    printf("Data from the file:\n%s", s);
-    fclose(fptr);
-
-    return sizeof(s);
 }

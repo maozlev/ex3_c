@@ -1,6 +1,6 @@
 # makefile
 
-all:isort txtfind
+all: isort txtfind
 
 isort: isort.o
 	gcc -Wall isort.o -o isort

@@ -3,13 +3,7 @@
 #include <stdbool.h>
 #define LINE 256
 
-int main(){
-    question_a();
-    question_b();
-   return 0;
-}
-
-question_b(){
+int question_b(){
 
     char str[LINE];
     char word[4];
@@ -155,7 +149,6 @@ question_b(){
             }
 
             if (c == '\n') {
-                str==NULL;
                 flag1=flag2=flag3=false;
                 arr_counter=0;
                 for (int i = 0; i < 4; i++)
@@ -166,11 +159,12 @@ question_b(){
             }
         }
     }
+    return 0;
 }
 
 
 
-question_a () {
+int question_a () {
     char str[LINE];
     FILE *fp;
     fp = fopen("search_file.txt", "r");
@@ -259,7 +253,6 @@ question_a () {
         if (c == '\n') {
             if (flag4 == true) {
             printf("Good line: %s\n", str);
-            str==NULL;
             break;
         }  
             break;
@@ -269,4 +262,11 @@ question_a () {
     }
 
     }
+    return 0;
+}
+
+int main(){
+    question_a();
+    question_b();
+   return 0;
 }

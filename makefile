@@ -1,6 +1,6 @@
 # makefile
 
-all: isort txtfind
+all:isort txtfind
 
 isort: isort.o
 	gcc -Wall isort.o -o isort
@@ -13,8 +13,8 @@ isort.o: isort.c
 
 txtfind.o: txtfind.c
 	gcc -Wall -c txtfind.c -o txtfind.o
-
+	
 .PHONY: clean all
 
-clean:
-	rm -f *.o *.a *.so isort txtfind
+clean: 
+	rm *.o -f isort txtfind

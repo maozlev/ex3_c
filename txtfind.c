@@ -252,7 +252,7 @@ int question_a () {
 
         if (c == '\n') {
             if (flag4 == true) {
-            printf("Good line: %s\n", str);
+            printf("%s", str);
             break;
         }  
             break;
@@ -267,6 +267,7 @@ int question_a () {
 
 int main(){
     question_a();
+    printf("\n");
     question_b();
    return 0;
 }

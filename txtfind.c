@@ -15,8 +15,7 @@ question_b(){
     char word[4];
     FILE *fp;
     fp = fopen("search_file.txt", "r");
-    int counter=0,curr_counter = 0, arr_counter=0;
-    int c;
+    int c, arr_counter=0;
     bool flag1 = false,flag2 = false,flag3 = false, flag4=false;
     FILE *fptr = fopen("search_file.txt", "r");
 
@@ -80,7 +79,6 @@ question_b(){
             }
             if(c == 'a'){
                 if(flag2!=true && flag1==true){
-                    curr_counter=counter;
                     flag2=true;
                     word[arr_counter++] = c;
                 }
@@ -93,25 +91,20 @@ question_b(){
                     }  
                 }
             }
+
+            if (c != ' ' && c != '\t' && c != EOF && c!= '\n' && c != 't' && arr_counter == 4) {
+                for (int i = 0; i < 4; i++)
+                {
+                    word[i] = '\0';
+                }
+                flag1=flag2=flag3=flag4=false;
+                arr_counter=0;
+            }
+
             if(c == 't'){
                 if(flag3!=true && flag1==true && flag2==true){
-                    curr_counter=counter;
                     flag3=true;
                     word[arr_counter++] = c;
-                    if(arr_counter==4){
-                        for (int i = 0; i < 4; i++)
-                        {
-                            printf("%c",word[i]);
-                        }
-                        printf("\n");
-                        for (int i = 0; i < 4; i++)
-                        {
-                            word[i]= '\0';
-                        }
-                        flag1=flag2=flag3=flag4=false;
-                        arr_counter=0;
-                        
-                    }
                 }
                 else{
                     flag1=flag2=flag3=false;
@@ -123,7 +116,20 @@ question_b(){
                 }
             }
 
-            if(c==' '){
+            if(c==' ' || c == '\t' || c == EOF){
+                if(arr_counter==4 && flag1==true && flag2==true && flag3==true){
+                    for (int i = 0; i < 4; i++)
+                    {
+                        printf("%c",word[i]);
+                    }
+                    printf("\n");
+                    for (int i = 0; i < 4; i++)
+                    {
+                        word[i]= '\0';
+                    }
+                    flag1=flag2=flag3=flag4=false;
+                    arr_counter=0;                       
+                }
                  if(arr_counter==3 && flag1==true && flag2==true && flag3==true){
                     word[arr_counter++]=c;
                         for (int i = 0; i < 4; i++)
@@ -137,15 +143,16 @@ question_b(){
                         }
                         flag1=flag2=flag3=flag4=false;
                         arr_counter=0;
-                 }
-                flag1=flag2=flag3=flag4=false;
-                arr_counter=0;
-                for (int i = 0; i < 4; i++)
-                {
-                    word[i] = '\0';
+                }
+                else{
+                    flag1=flag2=flag3=flag4=false;
+                    arr_counter=0;
+                    for (int i = 0; i < 4; i++)
+                    {
+                        word[i] = '\0';
+                    }
                 }
             }
-
 
             if (c == '\n') {
                 str==NULL;
@@ -156,13 +163,9 @@ question_b(){
                     word[i] = '\0';
                 }
                 break;
-            }  
-            
-            counter++;
-
+            }
         }
     }
-
 }
 
 

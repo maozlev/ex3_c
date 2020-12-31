@@ -8,10 +8,10 @@ int question_b(){
     char str[LINE];
     char word[4];
     FILE *fp;
-    fp = fopen("search_file.txt", "r");
+    fp = fopen("find_input.txt", "r");
     int c, arr_counter=0;
     bool flag1 = false,flag2 = false,flag3 = false, flag4=false;
-    FILE *fptr = fopen("search_file.txt", "r");
+    FILE *fptr = fopen("find_input.txt", "r");
 
     while(fgets(str, LINE, fp) != NULL) {
         flag1 = false;
@@ -167,12 +167,12 @@ int question_b(){
 int question_a () {
     char str[LINE];
     FILE *fp;
-    fp = fopen("search_file.txt", "r");
+    fp = fopen("find_input.txt", "r");
 
     int counter=0,curr_counter = 0;
     int c;
     bool flag1 = false,flag2 = false,flag3 = false, flag4=false;
-    FILE *fptr = fopen("search_file.txt", "r"); // We can't figure out why, but if we delete this, the program runs forever - so here it stays
+    FILE *fptr = fopen("find_input.txt", "r"); // We can't figure out why, but if we delete this, the program runs forever - so here it stays
 
     while(fgets(str, LINE, fp) != NULL) {
     // printf("Original line =  %s\n", str);
